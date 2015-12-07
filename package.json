@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kangax/fabric.js"
+    "url": "https://github.com/sexlog/fabric.js/"
   },
   "bugs": {
-    "url": "https://github.com/kangax/fabric.js/issues"
+    "url": "https://github.com/sexlog/fabric.js/issues"
   },
   "license": "MIT",
   "scripts": {
@@ -33,7 +33,7 @@
     "test": "node test.js && jshint src"
   },
   "dependencies": {
-    "canvas": "1.1.x",
+    "canvas": "1.3.x",
     "jsdom": "1.1.x",
     "xmldom": "0.1.x"
   },
@@ -46,7 +46,7 @@
     "istanbul": "0.3.x"
   },
   "engines": {
-    "node": ">=0.4.0 && <1.0.0"
+    "node": ">=4.x.x"
   },
   "main": "./dist/fabric.js"
 }
