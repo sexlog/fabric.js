@@ -13,6 +13,13 @@
     return new fabric.Group([ rect1, rect2 ], {strokeWidth: 0});
   }
 
+  function makeGroupWith2ObjectsWithOpacity() {
+    var rect1 = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10, strokeWidth: 0, opacity: 0.5 }),
+        rect2 = new fabric.Rect({ top: 120, left: 50, width: 10, height: 40, strokeWidth: 0, opacity: 0.8 });
+
+    return new fabric.Group([ rect1, rect2 ], {strokeWidth: 0});
+  }
+
   function makeGroupWith4Objects() {
     var rect1 = new fabric.Rect({ top: 100, left: 100, width: 30, height: 10 }),
         rect2 = new fabric.Rect({ top: 120, left: 50, width: 10, height: 40 }),
@@ -361,7 +368,7 @@ test('toObject without default values', function() {
   });
 
   asyncTest('fromObject', function() {
-    var group = makeGroupWith2Objects();
+    var group = makeGroupWith2ObjectsWithOpacity();
 
     ok(typeof fabric.Group.fromObject == 'function');
     var groupObject = group.toObject();
@@ -372,6 +379,9 @@ test('toObject without default values', function() {
       var objectFromNewGroup = newGroupFromObject.toObject();
 
       ok(newGroupFromObject instanceof fabric.Group);
+
+      deepEqual(objectFromOldGroup.objects[0], objectFromNewGroup.objects[0]);
+      deepEqual(objectFromOldGroup.objects[1], objectFromNewGroup.objects[1]);
 
       // delete `objects` arrays, since `assertHashEqual` fails to compare them for equality
       delete objectFromOldGroup.objects;
